@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { GlobalState } from '../../GlobalState';
 import axios from 'axios';
-import Logo from "./images/logo.jpg"
 
 
 export default function Header() {
@@ -13,15 +12,15 @@ export default function Header() {
   const [search, setSearch] = state.productsAPI.search
   const [infor] = state.userAPI.infor
   const [category, setCategory] = state.productsAPI.category
-  const [handleSearch, setHandleSearch] = useState('')
+  // const [handleSearch, setHandleSearch] = useState('')
   const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setSearch(handleSearch)
-    setHandleSearch('')
-    history.push("/products")
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   setSearch(handleSearch)
+  //   setHandleSearch('')
+  //   history.push("/products")
+  // }
 
   const logoutUser = async () => {
     await axios.get(`http://localhost:5000/user/logout`)

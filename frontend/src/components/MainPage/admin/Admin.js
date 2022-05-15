@@ -1,21 +1,14 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems, secondaryListItems } from './ListItems';
 import Orders from './Orders';
 import { GlobalState } from '../../../GlobalState';
 import { useContext, useState } from 'react';
 // import CreateProduct from './createProduct/createProduct';
-import Category from './category/Category';
+// import Category from './category/Category';
 import AdminProductsList from './products/AdminProductsList';
 
 // const drawerWidth = 240;
@@ -49,12 +42,13 @@ import AdminProductsList from './products/AdminProductsList';
 const mdTheme = createTheme();
 
 function Admin() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   // const toggleDrawer = () => {
   //   setOpen(!open);
   // };
   const state = useContext(GlobalState)
   const [history] = state.userAPI.history
+  console.log(history, 'history')
 
   return (
     <div className="admin__container">
@@ -91,7 +85,7 @@ function Admin() {
                     <div>
                       <h2>Số sản phẩm đã bán</h2>
                       <p className="overview__number">
-                        {
+                      {
                           history.reduce((prev, item) => prev + (
                             item.cart.reduce((prevItem, product) => (
                               prevItem + (product.sold)

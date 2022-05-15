@@ -61,29 +61,29 @@ export default function AdminProductsList() {
         }
     }, [params, product.images, products])
 
-    const handleUpload = async (e) => {
-        e.preventDefault()
-        try {
-            if (!isAdmin) {
-                Swal.fire("You are not admin!", "error")
-            }
-            const file = e.target.files[0]
-            if (!file) return Swal.fire("File not exist")
-            if (file.size > 1024 * 1024) return Swal.fire("File format is incorrect.")
+    // const handleUpload = async (e) => {
+    //     e.preventDefault()
+    //     try {
+    //         if (!isAdmin) {
+    //             Swal.fire("You are not admin!", "error")
+    //         }
+    //         const file = e.target.files[0]
+    //         if (!file) return Swal.fire("File not exist")
+    //         if (file.size > 1024 * 1024) return Swal.fire("File format is incorrect.")
 
-            let formData = new FormData()
-            formData.append("file", file)
-            setLoading(true)
-            const response = await axios.post(`api/upload`, formData, {
-                headers: { "content-type": "multipart/form-data", Authorization: token }
-            })
-            setLoading(false)
-            setImages(response.data)
+    //         let formData = new FormData()
+    //         formData.append("file", file)
+    //         setLoading(true)
+    //         const response = await axios.post(`api/upload`, formData, {
+    //             headers: { "content-type": "multipart/form-data", Authorization: token }
+    //         })
+    //         setLoading(false)
+    //         setImages(response.data)
 
-        } catch (err) {
-            Swal.fire(err.response.data.msg)
-        }
-    }
+    //     } catch (err) {
+    //         Swal.fire(err.response.data.msg)
+    //     }
+    // }
 
     const handleChangeInput = (e) => {
         const { name, value } = e.target
