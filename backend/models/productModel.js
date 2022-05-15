@@ -23,15 +23,16 @@ const productSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    required: true
+    // required: true
   },
   images: {
     type: Object,
-    required: true
+    default: 'https://res.cloudinary.com/levanquang/image/upload/v1646279066/MERN-Ecommerce/ftceyvewbf5d3ylkl96o.jpg'
+    // required: true
   },
   category: {
     type: String,
-    required: true
+    // required: true
   },
   checked: {
     type: Boolean,

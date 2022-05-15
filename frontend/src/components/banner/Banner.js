@@ -8,34 +8,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
     dots: true,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000
-  };
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000
+};
 
 export default function Banner() {
     return (
-        <div className="container">
+        // <div className="container">
         <div className="banner__container">
-            <div className="slide__show">
-                <Slider {...settings}>
-                    <div className="slide__item">
-                        <img src={BannerPink} alt=""/>
-                    </div>
-                    <div className="slide__item">
-                        <img src={Modal} alt=""/>
-                    </div>
-                    <div className="slide__item">
-                        <img src={Bambaska} alt=""/>
-                    </div>
-                </Slider>
-            </div>
-            <div className="banner__content">
-                <img src={FlashSale} alt="" className="banner__image"/>
-            </div>
+            <img src='https://nordiccoder.com/app/uploads/2020/01/58-developer.jpg?fbclid=IwAR3P9dWudPa7YjJb22WrY8fDG8QRnb1ifZEqte5rfKb-A_TunEv4vvKlKJE' alt='' className="banner__image" />
         </div>
-    </div>
+        // </div>
     )
 }

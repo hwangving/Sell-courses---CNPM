@@ -5,12 +5,12 @@ import Discover from "./images/discover.png"
 import Paypal from "./images/paypal.png"
 import AmericanExpress from "./images/american-express.png"
 import Email__image from "./images/email__image.png"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
     return (
         <footer>
-            <div className="follow__container">
+            {/* <div className="follow__container">
                 <h2>Follow</h2>
                 <div>
                     <ul className="follow__list">
@@ -79,7 +79,12 @@ export default function Footer() {
                            <li><img src={AmericanExpress} alt=""/></li>
                        </ul>
                   </div>
-            </div>
+            </div> */}
+            {/* <div className="footer-container"> */}
+
+            <h1>Trang web bán khóa học lập trình Online</h1>
+            <p>Phát triển bởi nhóm 12-Công nghệ phần mềm</p>
+            {/* </div> */}
         </footer>
     )
 }

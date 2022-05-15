@@ -9,9 +9,9 @@ class APIfeatures {
   }
 
   filtering() {
-    const queryObj = {...this.queryString} // queryString = req.query
+    const queryObj = { ...this.queryString } // queryString = req.query
     const excludedFields = ['page', 'sort', 'limit']
-    excludedFields.forEach(el => delete(queryObj[el]))
+    excludedFields.forEach(el => delete (queryObj[el]))
 
     let queryStr = JSON.stringify(queryObj)
     queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, match => '$' + match)
@@ -54,47 +54,46 @@ const productController = {
         products: products
       })
     } catch (err) {
-      return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message })
     }
   },
   createProduct: async (req, res) => {
     try {
-      const {product_id, title, price, description, content, images, category, sold} = req.body;
-      if (!images) return res.status(400).json({msg: "No image upload."})
+      const { product_id, title, price, description, images, sold } = req.body;
+      // if (!images) return res.status(400).json({msg: "No image upload."})
 
-      const product = await Products.findOne({product_id})
-      if (product) return res.status(400).json({msg: "This product already exists."})
+      const product = await Products.findOne({ product_id })
+      if (product) return res.status(400).json({ msg: "This product already exists." })
 
       const newProduct = await Products({
-        product_id, title: title.toLowerCase(), price, description, content, images, category, sold
+        product_id, title: title.toLowerCase(), price, description, images, sold
       })
 
       await newProduct.save()
-      res.json({msg: "Created a product."})
+      res.json({ msg: "Created a product." })
     } catch (err) {
-      return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message })
     }
   },
   deleteProduct: async (req, res) => {
     try {
       await Products.findByIdAndDelete(req.params.id)
-      res.json({msg: "Deleted a product."})
+      res.json({ msg: "Deleted a product." })
     } catch (err) {
-      return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message })
     }
   },
   updateProduct: async (req, res) => {
     try {
-      const {title, price, description, content, images, category} = req.body;
-      if (!images) return res.status(400).json({msg: "No image upload."})
-      
-      await Products.findOneAndUpdate({_id: req.params.id}, {
-        title: title.toLowerCase(), price, description, content, images, category
+      const { title, price, description, images } = req.body;
+
+      await Products.findOneAndUpdate({ _id: req.params.id }, {
+        title: title.toLowerCase(), price, description, images
       })
 
-      res.json({msg: "Updated a product"})
+      res.json({ msg: "Updated a product" })
     } catch (err) {
-      return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message })
     }
   },
 }

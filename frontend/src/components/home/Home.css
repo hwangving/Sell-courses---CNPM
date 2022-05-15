@@ -1,20 +1,23 @@
 .product__home--container {
-    min-height: 500px;
+    min-height: 400px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 250px));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
     justify-content: space-between;
     gap: 4rem;
 }
-.container__item  {
+
+.container__item {
     padding: 2rem 3rem;
 }
+
 .button__seemore {
     padding: 3rem 0 2rem;
     display: flex;
     text-align: center;
     justify-content: center;
-    
+
 }
+
 .button__seemore button {
     padding: 5px 20px;
     font-size: 1.7rem;

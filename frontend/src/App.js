@@ -4,7 +4,6 @@ import { DataProvider } from "./GlobalState"
 import Header from './components/header/Header';
 import Pages from "./components/MainPage/Pages"
 import Footer from './components/footer/Footer';
-import ScrollTop from './components/MainPage/support/ScrollTop';
 import ScrollToTop from './components/MainPage/support/ScrollTopPage';
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
           <ScrollToTop />
           <Header />
           <Pages />
-          <ScrollTop />
           <Footer />
         </Router>
       </DataProvider>
