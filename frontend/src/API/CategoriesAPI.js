@@ -17,4 +17,3 @@ export default function CategoriesAPI() {
         callback: [callback, setCallback]
     }
 }
-
