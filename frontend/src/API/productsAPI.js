@@ -30,3 +30,4 @@ export default function ProductsAPI() {
         result: [result, setResult]
     }
 }
+
